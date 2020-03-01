@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="rtl-app">
     <v-content>
       <v-container>
         <nuxt />
@@ -15,3 +15,11 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  @import "../assets/rtl.scss";
+  @import "../assets/variables.scss";
+  @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+  .rtl-app {
+    background-color: $blue-primary !important;
+  }
+</style>

@@ -1,0 +1,49 @@
+body {
+  background-color: #011F48 !important;
+}
+
+.card .back {
+  background-image: url("../static/img/back.png") !important;
+}
+
+.deck .card {
+  transform: none !important;
+  left: -7rem !important;
+  top: -7.75rem !important;
+  width: 14.714rem !important;
+  height: 22.563rem !important
+}
+
+.rtl-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 234px;
+  height: 58px;
+  border-radius: 29px;
+  padding: 13px 0;
+  background: #011f48;
+  filter: $w-shadow-sm;
+
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+  text-decoration: none;
+  color: white !important;
+
+  &:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 29px;
+    box-shadow: $b-shadow-sm;
+  }
+}
+
+.nuxt-link {
+  text-decoration: none !important;
+}

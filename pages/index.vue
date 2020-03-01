@@ -1,184 +1,83 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-  <global>
-    <template v-slot:content>
-      <div class="main" v-on:click="actionCard">
-        <testStyle color='#2cff1f'>
-          <h1>testeste</h1>
-        </testStyle>
-      </div>
-      <div id="container"></div>
-
-      <v-dialog v-model="showRules" content-class="dial-rule" width="500" transition="dialog-bottom-transition" persistent>
-        <h2>La règle</h2>
-        <p>
-          {{ rules }}
-        </p>
-        <v-btn v-on:click="next">
-          C'est fait, suivant
-        </v-btn>
-      </v-dialog>
-      <v-dialog v-model="showEnd"
-                fullscreen
-                hide-overlay
-                content-class="dial-end"
-                transition="dialog-bottom-transition">
-        <h2>C'est fini</h2>
-        <p>
-          Vous pouvez allez gerber :*
-        </p>
-      </v-dialog>
-    </template>
-  </global>
+    <global>
+      <template v-slot:content>
+        <v-row justify="center" align-content="center" align="center" class="rtl-row">
+          <v-col cols="12" class="rtl-intro">
+            <div class="logo"></div>
+            <h1>R.T.L</h1><br>
+            <h2>GAME</h2>
+          </v-col>
+          <div role="contentinfo" class="rtl-actions">
+              <NuxtLink class="nuxt-link" to="/players">
+                <button class="rtl-btn">
+                  Commencer
+                </button>
+              </NuxtLink>
+          </div>
+        </v-row>
+      </template>
+    </global>
 </template>
 
 <script>
-  import global from './templates/global.vue';
-  import Deck from 'deck-of-cards'
-  import styled from 'vue-styled-components';
-
-  const testStyle = styled('h1', {color: String})`
-    color: ${props => props.color};
-  `;
-
-  export default {
-    head() {
-      return {
-        link: [
-          {rel: 'stylesheet', href: 'node_modules/deck-of-cards/example/example.css'}
-        ]
-      }
-    },
-    components: {
-      testStyle,
-      global,
-    },
-    data: () => {
-      return {
-        indexCard: null,
-        foregroundCard: null,
-        currentSuit: null,
-        currentRank: null,
-        showRules: false,
-        rules: null,
-        deck: null,
-        showEnd: false
-      }
-    },
-    mounted() {
-      this.initDecks()
-    },
-    methods: {
-      initDecks: function () {
-        let $container = document.getElementById('container');
-        let deck = Deck();
-        deck.mount($container);
-        deck.shuffle();
-        this.indexCard = deck.cards.length - 1
-        this.deck = deck
-        this.foregroundCard = this.deck.cards[this.indexCard]
-      },
-      suitName: function (suit) {
-        return suit === 0 ? 'spades' : suit === 1 ? 'hearts' : suit === 2 ? 'clubs' : suit === 3 ? 'diamonds' : 'joker'
-      },
-      actionCard: async function () {
-        if (this.foregroundCard.side === 'back') {
-          await this.foregroundCard.setSide('front')
-          this.currentSuit = this.suitName(this.foregroundCard.suit)
-          this.currentRank = this.foregroundCard.rank
-          await this.getRules()
-          document.getElementById('container').classList.add('container-up')
-          this.showRules = true
-        }
-      },
-      next: async function () {
-        if (this.indexCard > 0) {
-          document.getElementById('container').classList.remove('container-up')
-          this.showRules = false
-          this.rules = null
-          await this.deck.cards[this.indexCard].unmount()
-          this.indexCard--
-          this.foregroundCard = this.deck.cards[this.indexCard]
-        } else {
-          this.showRules = false
-          this.showEnd = true
-        }
-
-      },
-      getRules: function () {
-        switch (this.foregroundCard.rank) {
-          case (1):
-            this.rules = 'Tournée général, miskine !'
-            break
-          case (2):
-            this.rules = `Tu distribue ${this.foregroundCard.rank}`
-            break
-          case (3):
-            this.rules = `Tu distribue ${this.foregroundCard.rank}`
-            break
-          case (4):
-            this.rules = `Tu distribue ${this.foregroundCard.rank}`
-            break
-          case (5):
-            this.rules = `Tu distribue ${this.foregroundCard.rank}`
-            break
-          case (6):
-            this.rules = 'Invente une règle'
-            break
-          case (7):
-            this.rules = 'Les Rimes'
-            break
-          case (8):
-            this.rules = 'Thèmes'
-            break
-          case (9):
-            this.rules = 'Lettres'
-            break
-          case (10):
-            this.rules = 'La règle de la 10'
-            break
-          case (11):
-            this.rules = 'Roi des pouces'
-            break
-          case (12):
-            this.rules = 'Toutes les femmes boivent'
-            break
-          case (13):
-            this.rules = 'Tous les hommes boivent'
-            break
-        }
+    import global from '~/layouts/global.vue'
+    export default {
+        name: "start",
+      components: {
+          global
       }
     }
-  }
 </script>
 
 <style lang="scss" scoped>
-  #container {
-    transition: ease-out;
-    transition-duration: .6s;
-    &.container-up {
-      top: calc(30% + 1.5rem)
-    }
-  }
+  .rtl-row {
+    .rtl-intro {
+      text-align: center;
 
-  .v-dialog__content {
-    align-items: flex-end;
-    ::v-deep .v-dialog.dial-rule {
-      margin: 0;
-      height: 50%;
+      .logo {
+        margin: 0 auto;
+        position: relative;
+        width: 214px;
+        height: 214px;
+        border-radius: 50%;
+        background: $blue-primary;
+        filter: $w-shadow-lg;
+        &:after {
+          position: absolute;
+          top: 0;
+          background: $blue-primary;
+          left: 0;
+          width: 214px;
+          height: 214px;
+          border-radius: 50%;
+          opacity: 0.71;
+          content: "";
+          filter: $b-shadow-lg;
+        }
+      }
+      h1 {
+        position: relative;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 115px;
+        line-height: 77px;
+      }
+      h2 {
+        position: relative;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 91px;
+        line-height: 77px;
+      }
     }
-    ::v-deep .v-dialog.dial-end {
-      margin: 0;
-      height: 100%;
-      background-color: red;
-    }
-  }
 
-  .main {
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    .rtl-actions {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 4rem;
+    }
   }
 </style>
