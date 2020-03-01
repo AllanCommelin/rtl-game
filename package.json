@@ -14,19 +14,14 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "cards": "^1.0.1",
     "cross-env": "^5.2.0",
     "deck-of-cards": "^0.1.8",
     "express": "^4.16.4",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-styled-components": "^1.4.14"
   },
   "devDependencies": {
     "nodemon": "^1.18.9",
-    "@nuxtjs/vuetify": "^1.0.0",
-    "@nuxtjs/eslint-config": "^1.0.1",
-    "@nuxtjs/eslint-module": "^1.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2"
+    "@nuxtjs/vuetify": "^1.0.0"
   }
 }
