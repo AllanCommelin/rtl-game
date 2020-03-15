@@ -3,6 +3,7 @@
     <v-row justify-content="center">
       <v-col cols="12" class="col-header" v-if="header">
         <NuxtLink to="/"><div class="logo"></div></NuxtLink>
+        <slot name="info-header"></slot>
       </v-col>
       <v-col cols="12" class="col-content">
         <slot name="content"></slot>
@@ -62,6 +63,8 @@
     background-color: $blue-primary !important;
   }
   .col-header {
+    display: flex;
+    justify-content: space-between;
     .logo {
       position: relative;
       width: 58px;

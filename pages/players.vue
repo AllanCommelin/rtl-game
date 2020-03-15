@@ -3,7 +3,7 @@
     <template v-slot:content>
       <v-col cols="12" class="rtl-content">
         <h1>
-          <span>Ajouter</span><br>
+          <span>Ajouter</span>
           <span>les joueurs</span>
         </h1>
         <div class="players">
@@ -65,34 +65,37 @@
 <style lang="scss" scoped>
   .rtl-content {
     overflow-y: paged-y;
-    margin-top: 8vh;
+    margin-top: 2vh;
     justify-content: center;
     align-items: center;
 
     h1 {
       text-align: center;
       span:first-of-type {
+        display: block;
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 93px;
-        line-height: 50px;
+        font-size: 12vh;
+        line-height: 10vh;
       }
       span:last-of-type {
+        display: block;
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 63px;
-        line-height: 50px;
+        font-size: 8vh;
+        line-height: 5vh;
       }
     }
 
     .players {
       text-align: right;
+      margin-top: 7vh;
 
       .player {
-        margin: 2rem 0;
+        margin: 2rem auto;
         position: relative;
         display: flex;
-        width: 285px;
+        width: 34vh;
         border-radius: 10px;
-        height: 42px;
+        height: 6vh;
         background: $blue-primary;
         filter: $w-shadow-sm;
 

@@ -9,10 +9,24 @@ body {
 
 .deck .card {
   transform: none !important;
-  left: -7rem !important;
-  top: -7.75rem !important;
-  width: 14.714rem !important;
-  height: 22.563rem !important
+  left: -12.5vh !important;
+  top: -24vh !important;
+  width: 27vh !important;
+  height: 47vh !important;
+
+  &:before, &:after {
+    font-size: 1.7rem !important;
+    line-height: 1.7rem !important;
+  }
+
+  &:before {
+    top: .2rem;
+    left: .5rem;
+  }
+  &:after {
+    top: .2rem;
+    right: .5rem;
+  }
 }
 
 .rtl-btn {
@@ -21,15 +35,15 @@ body {
   justify-content: center;
   align-items: center;
 
-  width: 234px;
-  height: 58px;
+  width: 30vh;
+  height: 8vh;
   border-radius: 29px;
   padding: 13px 0;
   background: #011f48;
   filter: $w-shadow-sm;
 
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 25px;
+  font-size: 3vh;
   text-decoration: none;
   color: white !important;
 

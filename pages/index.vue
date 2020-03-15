@@ -37,8 +37,8 @@
       .logo {
         margin: 0 auto;
         position: relative;
-        width: 214px;
-        height: 214px;
+        width: 25vh;
+        height: 25vh;
         border-radius: 50%;
         background: $blue-primary;
         filter: $w-shadow-lg;
@@ -47,8 +47,8 @@
           top: 0;
           background: $blue-primary;
           left: 0;
-          width: 214px;
-          height: 214px;
+          width: 25vh;
+          height: 25vh;
           border-radius: 50%;
           opacity: 0.71;
           content: "";
@@ -58,14 +58,14 @@
       h1 {
         position: relative;
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 115px;
-        line-height: 77px;
+        font-size: 16vh;
+        line-height: 2vh;
       }
       h2 {
         position: relative;
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 91px;
-        line-height: 77px;
+        font-size: 13vh;
+        line-height: 14vh;
       }
     }
 
