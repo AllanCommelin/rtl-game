@@ -2,6 +2,8 @@
 
 > Remake of alcool game R.T.L in mobile app
 
+>Rules : TODO
+
 ## Build Setup
 
 ``` bash
