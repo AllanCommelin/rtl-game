@@ -2,9 +2,6 @@
   <global header>
     <template v-slot:content>
       <div class="main" v-on:click="actionCard">
-<!--        <testStyle color='#2cff1f'>
-          <h1>testeste</h1>
-        </testStyle>-->
       </div>
       <div class="infos">
         Au tour de : {{ currentPlayer ? currentPlayer.name : "'En attente...'" }}
@@ -36,12 +33,7 @@
 <script>
   import global from '../layouts/global.vue';
   import Deck from 'deck-of-cards'
-  import styled from 'vue-styled-components';
   import { mapGetters } from 'vuex'
-
-  const testStyle = styled('h1', {color: String})`
-    color: ${props => props.color};
-  `;
 
   export default {
     head() {
@@ -52,7 +44,6 @@
       }
     },
     components: {
-      testStyle,
       global,
     },
     data: () => {
